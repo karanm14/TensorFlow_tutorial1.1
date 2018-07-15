@@ -1,0 +1,166 @@
+# WHAT IS TENSORFLOW?
+
+
+A software library for machine learning 
+▪ Computation using data flow graphs
+❖An open source successor to DistBelief ▪ Apache 2.0 License
+
+
+
+❖Released by Google November 9, 2015
+
+❖For research and production
+
+
+❖APIs:
+▪ Python
+▪ C++
+▪ Java
+▪ Go
+
+import tensorflow as tf
+
+x = tf.constant("Welcome to the exciting world of Deep Learning")
+tf.InteractiveSession()
+print(x.eval().decode())
+
+# In Deep Learning we use deep neural networks!
+
+Input = x
+
+z(1) = x*w(1) + b(1)
+
+a(1) = g(z(1))
+
+z(2) = a(2)*w(2)+b(2)
+
+a(2) = g(z(2))
+
+So we have:-
+    
+1) Input
+2) Variables 
+3) Constants
+
+
+import os
+from PIL import Image
+img = Image.open("Desktop/Screen Shot 2018-07-15 at 8.16.07 AM.png")
+img
+
+img = Image.open("Desktop/Screen Shot 2018-07-15 at 8.16.19 AM.png")
+img
+
+img = Image.open("Desktop/Screen Shot 2018-07-15 at 8.17.11 AM.png")
+img
+
+img = Image.open("Desktop/Screen Shot 2018-07-15 at 8.17.34 AM.png")
+img
+
+In general we can use MATLAB to implement existing deep learning models like AlexNet, RCNN, VGG, Faster-RCNN, but if we have to make our own architecture then we make a prototype in python using tensorflow
+
+Computational Graph - Neural Network
+
+
+Execution Graph - Feeding Data into the Neural Network
+
+img = Image.open("Desktop/Screen Shot 2018-07-15 at 8.22.54 AM.png")
+img
+
+# Adding 2 vectors
+
+v1 = tf.constant([1,2,3])
+v2 = tf.constant([4,5,6])
+x = tf.add(v1,v2)
+
+with tf.Session() as sess:
+    print(sess.run(x))
+
+t1 = tf.constant(4)
+t2 = tf.constant([1,2,3])
+tf.add = (t1+t2)
+
+
+# Adding a constant to a vector
+
+with tf.Session() as sess:
+    print(sess.run(t1+t2))
+
+# Create a matrix
+
+x=tf.zeros([3,3],tf.int32)
+
+with tf.Session() as sess:
+    print(sess.run(x))
+
+
+y = tf.ones_like(t2,tf.float32)
+
+with tf.Session() as sess:
+    print(sess.run(y))
+
+
+
+# Create a range of numbers (start,stop,total numbers)
+
+x1= tf.linspace(1.0,10,3)
+
+with tf.Session() as sess:
+    print(sess.run(x1))
+
+
+
+# Create a random matrix (generally used to initialise weights)
+
+t_random = tf.random_normal([2,3], mean=5.0, stddev=12.0, seed = 12)
+
+with tf.Session() as sess:
+    print(sess.run(t_random))
+
+
+
+x2 = tf.range(1,10,1)
+x3 = tf.random_shuffle(x2)
+
+with tf.Session() as sess:
+    for i in (sess.run(x3)):
+        print(i)
+
+
+
+# So far we learnt about constants, now lets learn about variables!
+we will learn how to create a variable and how to initialize it randomly
+
+rand_t = tf.random_uniform([50,50],0,10,seed=12)
+t1 = tf.Variable(rand_t)
+t2 = tf.Variable(rand_t)
+
+a=tf.subtract(t1,t2)
+initial_op = tf.global_variables_initializer()
+
+with tf.Session() as sess:
+    sess.run(initial_op)
+    #always remember to initalise the variable
+    print(sess.run(a))
+
+
+
+weights = tf.Variable(tf.random_normal([100,100],stddev=2.0), name="w1")
+bias = tf.Variable(tf.zeros(100), name="b1")
+initial_op = tf.global_variables_initializer()
+
+with tf.Session() as sess:
+    sess.run(initial_op)
+    print(weights.shape)
+    print(bias.shape)
+    print(sess.run(weights+bias))
+    
+
+
+
+img = Image.open("Desktop/Screen Shot 2018-07-15 at 8.38.42 AM.png")
+img1 = Image.open("Desktop/Screen Shot 2018-07-15 at 8.38.51 AM.png")
+img
+
+img1
+
